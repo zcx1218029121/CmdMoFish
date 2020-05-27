@@ -32,7 +32,7 @@ class ListView(ViewGroup):
         :param key:
         :return:
         """
-        print("爸爸消费")
+        print("爸爸消费"+key)
         if is_number(key):
             return True
         return False

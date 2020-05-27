@@ -33,4 +33,8 @@ class ViewGroup(View):
         return self.handle_key(key)
 
     def stop_dispatch(self):
+        """
+        是否拦截事件分发
+        :return:
+        """
         return False
