@@ -2,17 +2,24 @@ from view.View import View
 
 
 class ViewGroup(View):
-    child = []
+    def __init__(self, data=None):
+        self.child = None
+        super().__init__(data)
+
 
     def add_child(self, view):
+        if self.child is None:
+            self.child = []
+
         self.child.append(view)
 
     def print_content(self):
         self.print_child()
 
     def print_child(self):
-        for child_view in self.child:
-            child_view.resume()
+
+        for temp in self.child:
+            temp.resume()
 
     def handle_key(self, key):
         """

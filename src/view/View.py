@@ -3,9 +3,10 @@
 
 class View:
 
-    def __init__(self):
-        self.data = None
+    def __init__(self, data=None):
+        self.data = data
         self.creat()
+        self.need_print = True
 
     def before_print(self):
         pass
@@ -34,9 +35,10 @@ class View:
         :return:
         """
         self.on_resume()
-        self.before_print()
-        self.print_content()
-        self.after_print()
+        if self.need_print:
+            self.before_print()
+            self.print_content()
+            self.after_print()
 
     def destroy(self):
         """

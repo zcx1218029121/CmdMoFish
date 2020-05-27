@@ -22,9 +22,10 @@ def is_number(s):
 
 class ListView(ViewGroup):
 
-    def on_creat(self):
-        for item_data in self.get_items_data():
-            self.add_child(Item(item_data))
+    def creat(self):
+
+        for item_data in self.data:
+            self.add_child(self.build_item(item_data))
 
     def handle_key(self, key):
         """
@@ -32,7 +33,6 @@ class ListView(ViewGroup):
         :param key:
         :return:
         """
-        print("爸爸消费"+key)
         if is_number(key):
             return True
         return False
@@ -42,7 +42,8 @@ class ListView(ViewGroup):
         为减少数组递归分发的时间复杂度 拦截事件的分发
         :return: 是否消费当前输入
         """
-        return False
+        return True
 
-    def get_items_data(self):
-        return [1, 2, 3, 4, 5, 6]
+
+    def build_item(self, data):
+        pass
