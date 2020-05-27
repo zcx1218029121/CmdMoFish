@@ -22,7 +22,7 @@ def is_number(s):
 
 class ListView(ViewGroup):
 
-    def creat(self):
+    def on_creat(self):
         for item_data in self.get_items_data():
             self.add_child(Item(item_data))
 
