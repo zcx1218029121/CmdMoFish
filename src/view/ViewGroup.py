@@ -6,7 +6,6 @@ class ViewGroup(View):
         self.child = None
         super().__init__(data)
 
-
     def add_child(self, view):
         if self.child is None:
             self.child = []
@@ -27,12 +26,11 @@ class ViewGroup(View):
         :param key:
         :return:
         """
-        return True
+        return False
 
     def dispatch_key(self, key):
         if self.stop_dispatch():
             return self.handle_key(key)
-
         for child_view in self.child:
             # 有一个子view 消费了当前事件 立即结束事件的分发
             if child_view.dispatch_key(key):

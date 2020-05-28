@@ -3,9 +3,9 @@
 
 class View:
 
-    def __init__(self, data=None):
+    def __init__(self, data=None, param=None):
         self.data = data
-        self.creat()
+        self.creat(param)
         self.need_print = True
 
     def before_print(self):
@@ -21,12 +21,12 @@ class View:
         """
         pass
 
-    def creat(self):
+    def creat(self, param):
         """
         创建回调
         :return:
         """
-        self.on_creat()
+        self.on_creat(param)
         pass
 
     def resume(self):
@@ -54,7 +54,7 @@ class View:
         :param key:
         :return:
         """
-        return True
+        return False
 
     def dispatch_key(self, key):
         return self.handle_key(key)
@@ -66,7 +66,7 @@ class View:
     def get_data(self):
         return self.data
 
-    def on_creat(self):
+    def on_creat(self,param):
         pass
 
     def on_resume(self):
